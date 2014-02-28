@@ -1,0 +1,31 @@
+application: python-monguru-monitor
+version: 0-2
+runtime: python27
+api_version: 1
+threadsafe: true
+
+
+handlers:
+
+- url: /static/small.png
+  static_files: static/small.png
+  upload: static/small.png
+  secure: optional
+
+- url: /static/large.png
+  static_files: static/large.png
+  upload: static/large.png
+  secure: optional
+ 
+- url: /
+  static_files: index.html
+  upload: index.html
+  secure: optional
+   
+- url: /.*
+  script: main.app
+  secure: optional
+
+builtins:
+- deferred: on
+- appstats: on
